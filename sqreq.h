@@ -28,8 +28,8 @@ bool srav(const float number1, const float number2);
 
 /*!
     \brief Solves linear equations provided that the coefficient a = 0
-    \param[in]  b b - coefficient
-    \param[in]  c c - coefficient
+    \param[in]  b - coefficient
+    \param[in]  c - coefficient
     \param[out] x1 pointer to the root of equation
 */
 
@@ -38,8 +38,9 @@ int line_equation(const float a, const float b, const float c, float *x1);
 
 /*!
     \brief Solves the quadratic equation
-    \param[in]  b b - coefficient
-    \param[in]  c c - coefficient
+    \param[in]  a - coefficient
+    \param[in]  b - coefficient
+    \param[in]  c - coefficient
     \param[out] x1 pointer to the first  root x1
     \param[out] x2 pointer to the second root x2
     \return Number of roots
