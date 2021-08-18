@@ -56,7 +56,7 @@ int debajim()
 
 _Bool srav(const float zero, const float koef)
 {
-    return fabs(koef - zero) < 0.0001;
+    return fabs(koef - zero) < pogranichnik;
 }
 
 
@@ -64,32 +64,40 @@ int line_equation(const float a, const float b, const float c, float *x1)
 {
     assert(x1 != NULL);
 
-    if (srav(0, b) && !srav(0, c)) return 0;
-    if (!srav(0, b) && srav(0, c))
+
+    if (srav(0, b))
     {
-        *x1 = 0;
-        return 1;
+         if (srav(0, c)) return 3;
+         else return 0;
     }
-    if (!srav(0, b) && !srav(0, c))
+    else
     {
-        *x1 = -c / b;
-        return 1;
+        if (srav(0, c))
+        {
+            *x1 = 0;
+            return 1;
+        }
+        else
+        {
+            *x1 = -c / b;
+            return 1;
+        }
+
     }
-    if (srav(0, b) && srav(0, c)) return 3;
 
 }
 
 int sqr_equation(const float a, const float b, const float c, float *x1, float *x2)
 {
-    float Discriminant = 0;
 
     assert(x1 != NULL);
     assert(x2 != NULL);
     assert(x1 != x2);
 
-    if (a == 0) return (line_equation(a, b, c, x1));
+    if (srav(0, a)) return (line_equation(a, b, c, x1));
     else
     {
+        float Discriminant = 0;
         Discriminant = b * b - 4 * a * c;
 
         if (Discriminant < 0) return 0;
@@ -113,6 +121,7 @@ int sqr_equation(const float a, const float b, const float c, float *x1, float *
 }
 
 int zapuskTRTR(float *a, float *b, float *c)
+{
 
     assert(a != NULL);
     assert(b != NULL);

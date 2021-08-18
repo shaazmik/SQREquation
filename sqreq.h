@@ -7,6 +7,8 @@
 
 const size_t MAXLENGTH = 30;
 
+const float pogranichnik = 0.0001;
+
 enum ERRORS {
     FILE_NOT_FOUND = 1
 };
