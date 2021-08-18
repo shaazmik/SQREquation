@@ -27,7 +27,7 @@ int debajim()
     int kolstr = 0;
     FILE *in = NULL;
     if ((in = fopen("Tests.txt", "r")) == NULL){
-        fprintf(stderr, "Ôאיכא םולא\n");
+        fprintf(stderr, "File poteryalsya\n");
         return FILE_NOT_FOUND;
     }
 
