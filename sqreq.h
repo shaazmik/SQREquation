@@ -5,11 +5,7 @@
 
 //#define DEBUG_MOD
 
-
-
 const size_t MAXLENGTH = 30;
-
-
 
 enum ERRORS {
     FILE_NOT_FOUND = 1

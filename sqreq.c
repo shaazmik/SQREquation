@@ -33,7 +33,7 @@ int debajim()
 
     fscanf(in, "%d", &kolstr);
 
-    for(int i = 0; i < kolstr; ++i){
+    for (int i = 0; i < kolstr; ++i){
         float a = 0, b = 0, c = 0, x1 = 0, x2 = 0;
         if (testinpt(&a, &b, &c, in) == 1){
                 fprintf(stderr, "");
@@ -60,7 +60,7 @@ _Bool srav(const float zero, const float koef)
 }
 
 
-int line_equation(const float a, const float b, const float c, float *x1)   /* функция решения лин. уравнения, функция возвращает значение количества корней уравнения */
+int line_equation(const float a, const float b, const float c, float *x1)
 {
     assert(x1 != NULL);
 
@@ -79,7 +79,7 @@ int line_equation(const float a, const float b, const float c, float *x1)   /* ф
 
 }
 
-int sqr_equation(const float a, const float b, const float c, float *x1, float *x2)  /* функция решения квадратного уравнения + вызов на случай линейного, возвращает кол-во корней */
+int sqr_equation(const float a, const float b, const float c, float *x1, float *x2)
 {
     float Discriminant = 0;
 
@@ -112,8 +112,7 @@ int sqr_equation(const float a, const float b, const float c, float *x1, float *
 
 }
 
-int zapuskTRTR(float *a, float *b, float *c)  /*Запуск программы + проверка на валидность ввёденных данных */
-{                                             /*Если данные не являются корректными возвращает 1, в ином случае 0 */
+int zapuskTRTR(float *a, float *b, float *c)
 
     assert(a != NULL);
     assert(b != NULL);
@@ -141,9 +140,9 @@ int zapuskTRTR(float *a, float *b, float *c)  /*Запуск программы + проверка на в
     return 0;
 }
 
-void outputVJUX(const int kol, const float x1, const float x2)   /* функция вывода   */
+void outputVJUX(const int kol, const float x1, const float x2)
 {
-    switch(kol)  /*по количеству корней определяется вывод  */
+    switch(kol)
     {
         case 0:
             printf("no roots\n");
