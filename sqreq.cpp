@@ -161,7 +161,7 @@ int sqr_equation(const float a, const float b, const float c, float *x1, float *
 
         if (Discriminant < 0) return 0;
 
-        if (Discriminant == 0)
+        if (srav(0, Discriminant))
         {
             *x1 = -b / (2 * a);
 
@@ -169,9 +169,10 @@ int sqr_equation(const float a, const float b, const float c, float *x1, float *
         }
         if (Discriminant > 0)
         {
-            *x1 = (-b + sqrt(Discriminant)) / (2 * a);
+            float koren = sqrt(Discriminant);
 
-            *x2 = (-b - sqrt(Discriminant)) / (2 * a);
+            *x1 = (-b + koren) / (2 * a);
+            *x2 = (-b - koren) / (2 * a);
 
             return 2;
         }
