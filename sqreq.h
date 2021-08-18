@@ -3,22 +3,27 @@
 #include <assert.h>
 #include <string.h>
 
-//#define DEBUG_MOD
+//#define DEBUG_MODE
 
 const size_t MAXLENGTH = 30;
 
-const float pogranichnik = 0.0001;
+const float pogranichnik = 0.01;
 
 enum ERRORS {
     FILE_NOT_FOUND = 1
 };
 
-
 /*!
-    \brief Checks the number for equality with 0
+  \brief Use for unit tests
 */
 
-_Bool srav(const float zero, const float koef);
+int debajim();
+
+/*!
+    \brief Checks the number#1 for equality with number#2
+*/
+
+bool srav(const float number1, const float number2);
 
 
 /*!
@@ -72,7 +77,12 @@ void outputVJUX(const int kol, const float x1, const float x2);
     \brief gets abs coefficients for tests
 */
 
-int testinpt(float *a, float *b, float *c, FILE *in);
+int testinpt(float *a, float *b, float *c, int *kolotv, float *x1, float *x2, FILE *in);
 
+/*!
+    \brief output tests from debug
+*/
+
+void vivoddebugga(const int number, const int kolotv, const float x1, const float x2, const float x1v, const float x2v, const int kol);
 
 
