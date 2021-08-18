@@ -62,6 +62,11 @@ int sqr_equation(float a, float b, float c, float *x1, float *x2)
 
 int zapuskTRTR(float *a, float *b, float *c)
 {
+
+    assert(a != NULL);
+    assert(b != NULL);
+    assert(c != NULL);
+
     printf("form of equation: ax^2+bx+c\n");
 
     printf("\n");
@@ -95,39 +100,36 @@ int zapuskTRTR(float *a, float *b, float *c)
     return 0;
 }
 
-void outputVJUX(float a, float b, float c)
+void outputVJUX(float a, float b, float c, int kol, float x1, float x2)
 {
-    float x1 = 0, x2 = 0;
+    if (a == 0 && b == 0 && c == 0)
+        printf("infinite quantity of roots\n");
+    else
+    {
+        if (kol == 0)
+            printf("no roots\n");
+        if (kol == 1)
+            printf("%f\t single root", x1);
+        if (kol == 2)
+            printf("%f\t%f\t two roots", x1, x2);
+    }
 
-    if (sqr_equation(a, b, c, &x1, &x2) == 0)
-        printf("no roots\n");
-    if (sqr_equation(a, b, c, &x1, &x2) == 1)
-        printf("%f\t single root", x1);
-    if (sqr_equation(a, b, c, &x1, &x2) == 2)
-        printf("%f\t%f\t two roots", x1, x2);
 
 }
 
 
 int main()
 {
-    float a = 0, b = 0, c = 0;
-    float x1 = 0, x2 = 0;
+    float a = 0, b = 0, c = 0, x1 = 0, x2 = 0;
+    int kol = 0;
 
     if (zapuskTRTR(&a, &b, &c) == 1)
     {
        printf("Hmmm something went wrong\n");
        return 1;
     }
-
-
-    if (a == 0 && b == 0 && c == 0)
-
-        printf("infinite quantity of roots\n");
-
-    else
-
-        outputVJUX(a,b,c);
+        kol = sqr_equation(a, b, c, &x1, &x2);
+        outputVJUX(a, b, c, kol, x1, x2);
 
 return 0;
 }
