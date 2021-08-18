@@ -140,6 +140,24 @@ int zapuskTRTR(float *a, float *b, float *c)
     return 0;
 }
 
+int testinpt(float *a, float *b, float *c, FILE *in)
+{
+    assert(in != NULL);
+    assert(a != NULL);
+    assert(b != NULL);
+    assert(c != NULL);
+    assert(! (a == b || b == c || a == c));
+
+    if (fscanf(in, "%f", a) == 0)
+        return 1;
+    if (fscanf(in, "%f", b) == 0)
+        return 1;
+    if (fscanf(in, "%f", c) == 0)
+        return 1;
+    return 0;
+}
+
+
 void outputVJUX(const int kol, const float x1, const float x2)
 {
     switch(kol)
@@ -162,21 +180,4 @@ void outputVJUX(const int kol, const float x1, const float x2)
     return;
 }
 
-
-int testinpt(float *a, float *b, float *c, FILE *in)
-{
-    assert(in != NULL);
-    assert(a != NULL);
-    assert(b != NULL);
-    assert(c != NULL);
-    assert(! (a == b || b == c || a == c));
-
-    if (fscanf(in, "%f", a) == 0)
-        return 1;
-    if (fscanf(in, "%f", b) == 0)
-        return 1;
-    if (fscanf(in, "%f", c) == 0)
-        return 1;
-    return 0;
-}
 
