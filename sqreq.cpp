@@ -59,12 +59,12 @@ int testinpt(float *a, float *b, float *c, int *kolotv, float *x1, float *x2, FI
     return 0;
 }
 
-int debajim()
+int debajim_yohoo()
 {
     int kolstr = 0;
-    FILE *in = NULL;
-    if ((in = fopen("Tests.txt", "r")) == NULL){
-        fprintf(stderr, "File poteryalsya\n");
+    FILE *in = fopen("Tests.txt", "r");
+    if (in == NULL){
+        fprintf(stderr, "File is poteryalsya\n");
         return FILE_NOT_FOUND;
     }
 
@@ -102,7 +102,7 @@ void vivoddebugga(const int number, const int kolotv, const float x1, const floa
                 else printf("Test #%d wasnt passed\n", number + 1);
                 break;
             case 2:
-                if (srav(x1, x1v) && srav(x2, x2v)) printf("Test #%d passed, x1 = %.2f, x2 = %.2f\n", number + 1, x1, x2);
+                if (srav(x1, x1v, pogranichnik) && srav(x2, x2v, pogranichnik)) printf("Test #%d passed, x1 = %.2f, x2 = %.2f\n", number + 1, x1, x2);
                 else printf("Test #%d wasnt passed\n", number + 1);
                 break;
             case 3:
@@ -113,9 +113,9 @@ void vivoddebugga(const int number, const int kolotv, const float x1, const floa
     return;
 }
 
-bool srav(const float number1, const float number2)
+bool srav(const float number1, const float number2, const float fallibility)
 {
-    return fabs(number2 - number1) < pogranichnik;
+    return fabs(number2 - number1) < fallibility;
 }
 
 
@@ -124,14 +124,14 @@ int line_equation(const float a, const float b, const float c, float *x1)
     assert(x1 != NULL);
 
 
-    if (srav(0, b))
+    if (srav(0, b, Zoro))
     {
-         if (srav(0, c)) return 3;
+         if (srav(0, c, Zoro)) return 3;
          else return 0;
     }
     else
     {
-        if (srav(0, c))
+        if (srav(0, c, Zoro))
         {
             *x1 = 0;
             return 1;
@@ -153,7 +153,7 @@ int sqr_equation(const float a, const float b, const float c, float *x1, float *
     assert(x2 != NULL);
     assert(x1 != x2);
 
-    if (srav(0, a)) return (line_equation(a, b, c, x1));
+    if (srav(0, a, Zoro)) return (line_equation(a, b, c, x1));
     else
     {
         float Discriminant = 0;
@@ -161,7 +161,7 @@ int sqr_equation(const float a, const float b, const float c, float *x1, float *
 
         if (Discriminant < 0) return 0;
 
-        if (srav(0, Discriminant))
+        if (srav(0, Discriminant, Zoro))
         {
             *x1 = -b / (2 * a);
 
