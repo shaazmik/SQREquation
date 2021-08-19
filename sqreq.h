@@ -57,7 +57,7 @@ bool srav(const float number1, const float number2, const float fallibility);
  *   \return number of roots of equation
  */
 
-int line_equation(const float a, const float b, const float c, float *x1);
+int solve_line_equation(const float a, const float b, const float c, float *x1);
 
 
 /*!
@@ -71,7 +71,7 @@ int line_equation(const float a, const float b, const float c, float *x1);
  *   \note In case of infinite number of roots, returns 3
  */
 
-int sqr_equation(const float a, const float b, const float c, float *x1, float *x2);
+int solve_sqr_equation(const float a, const float b, const float c, float *x1, float *x2);
 
 
 
@@ -88,13 +88,13 @@ int zapuskTRTR(float *a, float *b, float *c);
 
 /*!
  *   \brief outputs solutions of equations
- *   \param[in] kol - number of solutions
+ *   \param[in] KOL_otv - number of solutions
  *   \param[in] x1 - first root of equation
  *   \param[in] x2 - second root of equation
  *   \note if there are no solutions or infinitely, then reports it
  */
 
-void outputVJUX(const int kol, const float x1, const float x2);
+void outputVJUX(const int KOL_otv, const float x1, const float x2);
 
 
 /*!
@@ -108,19 +108,19 @@ void outputVJUX(const int kol, const float x1, const float x2);
  *   \return In the function fails, the return value 1, else return value 0
  */
 
-int testinpt(float *a, float *b, float *c, int *kolotv, float *x1, float *x2, FILE *in);
+int TESTinpuT_file(float *a, float *b, float *c, int *KOL_otv, float *x1, float *x2, FILE *in);
 
 /*!
  *   \brief output tests from debug
  *   \param[in] number - number of test
- *   \param[in] kolotv - number of roots of equation from file
+ *   \param[in] KOL_otv_file - number of roots of equation from file
  *   \param[in] x1 - the first root of equation from file
  *   \param[in] x2 - the second root of equation from file
  *   \param[in] x1v - the first root of equation from function
  *   \param[in] x2v - the second root of equation from function
- *   \param[in] kol - number of roots of equation from function
+ *   \param[in] KOL_otv_function - number of roots of equation from function
  */
 
-void vivoddebugga(const int number, const int kolotv, const float x1, const float x2, const float x1v, const float x2v, const int kol);
+void vivoddebugga(const int number, const int KOL_otv_file, const float x1, const float x2, const float x1v, const float x2v, const int KOL_otv_function);
 
 

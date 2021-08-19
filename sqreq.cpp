@@ -5,24 +5,28 @@ int main()
     printf("form of equation: ax^2+bx+c\n\n");
 
     #ifndef DEBUG_MODE
+
         float a = 0, b = 0, c = 0, x1 = 0, x2 = 0;
-        int kol = 0;
+        int KOL_otv = 0;
         if (zapuskTRTR(&a, &b, &c) == 1)
         {
             printf("Hmmm something went wrong\n");
             return 1;
         }
-        kol = sqr_equation(a, b, c, &x1, &x2);
-        outputVJUX(kol, x1, x2);
+        KOL_otv = solve_sqr_equation(a, b, c, &x1, &x2);
+        outputVJUX(KOL_otv, x1, x2);
 
         return 0;
+
     #else
-        return debajim();
+
+        return debajim_yohoo();
+
     #endif // DEBUG_MODE
 }
 
 
-int testinpt(float *a, float *b, float *c, int *kolotv, float *x1, float *x2, FILE *in)
+int TESTinpuT_file(float *a, float *b, float *c, int *KOL_otv, float *x1, float *x2, FILE *in)
 {
     assert(in != NULL);
     assert(a != NULL);
@@ -30,12 +34,12 @@ int testinpt(float *a, float *b, float *c, int *kolotv, float *x1, float *x2, FI
     assert(c != NULL);
     assert(x1 != NULL);
     assert(x2 != NULL);
-    assert(kolotv != NULL);
+    assert(KOL_otv != NULL);
     assert(x1 != x2);
     assert(! (a == b || b == c || a == c));
 
-    if (fscanf(in, "%f %f %f %d", a, b, c, kolotv) != 4) return 1;
-    switch(*kolotv)
+    if (fscanf(in, "%f %f %f %d", a, b, c, KOL_otv) != 4) return 1;
+    switch(*KOL_otv)
     {
         case 0:
             return 0;
@@ -61,41 +65,41 @@ int testinpt(float *a, float *b, float *c, int *kolotv, float *x1, float *x2, FI
 
 int debajim_yohoo()
 {
-    int kolstr = 0;
+    int KOLstr = 0;
     FILE *in = fopen("Tests.txt", "r");
-    if (in == NULL)
+    if (!in)
     {
-        fprintf(stderr, "File is poteryalsya\n");
+        fprintf(stderr, "error:File \"Tests.txt\" is poteryalsya\n");
         return ERR_FILE_NOT_FOUND;
     }
 
-    fscanf(in, "%d", &kolstr);
+    fscanf(in, "%d", &KOLstr);
 
-    for (int i = 0; i < kolstr; ++i)
+    for (int i = 0; i < KOLstr; ++i)
     {
         float a = 0, b = 0, c = 0, x1 = 0, x2 = 0;
-        int kolotv = 0;
-        if (testinpt(&a, &b, &c, &kolotv, &x1, &x2, in) == 1)
+        int KOL_otv_file = 0;
+        if (TESTinpuT_file(&a, &b, &c, &KOL_otv_file, &x1, &x2, in) == 1)
         {
                 fprintf(stderr, "");
                 break;
         }
         float x1v = 0, x2v = 0;
-        int kol = sqr_equation(a, b, c, &x1v, &x2v);
-        vivoddebugga(i, kolotv, x1, x2, x1v, x2v, kol);
+        int KOL_otv_function = solve_sqr_equation(a, b, c, &x1v, &x2v);
+        vivoddebugga(i, KOL_otv_file, x1, x2, x1v, x2v, KOL_otv_function);
     }
 
     fclose(in);
     return 0;
 }
 
-void vivoddebugga(const int number, const int kolotv, const float x1, const float x2, const float x1v, const float x2v, const int kol)
+void vivoddebugga(const int number, const int KOL_otv_file, const float x1, const float x2, const float x1v, const float x2v, const int KOL_otv_func)
 {
-   if (kol != kolotv)
+   if (KOL_otv_file != KOL_otv_func)
             printf("Test #%d wasnt passed", number + 1);
         else
         {
-            switch(kol)
+            switch(KOL_otv_file)
             {
             case 0:
                 printf("Test #%d passed, no roots\n", number + 1);
@@ -122,7 +126,7 @@ bool srav(const float number1, const float number2, const float fallibility)
 }
 
 
-int line_equation(const float a, const float b, const float c, float *x1)
+int solve_line_equation(const float a, const float b, const float c, float *x1)
 {
     assert(x1 != NULL);
 
@@ -149,14 +153,14 @@ int line_equation(const float a, const float b, const float c, float *x1)
 
 }
 
-int sqr_equation(const float a, const float b, const float c, float *x1, float *x2)
+int solve_sqr_equation(const float a, const float b, const float c, float *x1, float *x2)
 {
 
     assert(x1 != NULL);
     assert(x2 != NULL);
     assert(x1 != x2);
 
-    if (srav(0, a, Zoro)) return (line_equation(a, b, c, x1));
+    if (srav(0, a, Zoro)) return (solve_line_equation(a, b, c, x1));
     else
     {
         float discriminant = 0;
@@ -214,9 +218,9 @@ int zapuskTRTR(float *a, float *b, float *c)
 
 
 
-void outputVJUX(const int kol, const float x1, const float x2)
+void outputVJUX(const int KOL_otv, const float x1, const float x2)
 {
-    switch(kol)
+    switch(KOL_otv)
     {
         case 0:
             printf("no roots\n");
