@@ -118,7 +118,7 @@ void vivoddebugga(const int number, const int KOL_otv_file, const float x1, cons
                                                                                 printf("Test #%d passed, infinite quantity of roots\n", number + 1);
                 break;
             }
-        }
+         }
     return;
 }
 
