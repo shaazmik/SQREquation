@@ -1,5 +1,5 @@
 # SQREquation
-Programm for solving quadratic equations
+Program for solving quadratic equations
 
 An equation of the form ax^2+bx+c=0. 3 coefficients a, b, and c are entered. 
 
