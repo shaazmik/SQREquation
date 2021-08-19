@@ -63,17 +63,20 @@ int debajim_yohoo()
 {
     int kolstr = 0;
     FILE *in = fopen("Tests.txt", "r");
-    if (in == NULL){
+    if (in == NULL)
+    {
         fprintf(stderr, "File is poteryalsya\n");
-        return FILE_NOT_FOUND;
+        return ERR_FILE_NOT_FOUND;
     }
 
     fscanf(in, "%d", &kolstr);
 
-    for (int i = 0; i < kolstr; ++i){
+    for (int i = 0; i < kolstr; ++i)
+    {
         float a = 0, b = 0, c = 0, x1 = 0, x2 = 0;
         int kolotv = 0;
-        if (testinpt(&a, &b, &c, &kolotv, &x1, &x2, in) == 1){
+        if (testinpt(&a, &b, &c, &kolotv, &x1, &x2, in) == 1)
+        {
                 fprintf(stderr, "");
                 break;
         }
@@ -102,7 +105,7 @@ void vivoddebugga(const int number, const int kolotv, const float x1, const floa
                 else printf("Test #%d wasnt passed\n", number + 1);
                 break;
             case 2:
-                if (srav(x1, x1v, pogranichnik) && srav(x2, x2v, pogranichnik)) printf("Test #%d passed, x1 = %.2f, x2 = %.2f\n", number + 1, x1, x2);
+                if (srav(x1, x1v, Pogranichnik) && srav(x2, x2v, Pogranichnik)) printf("Test #%d passed, x1 = %.2f, x2 = %.2f\n", number + 1, x1, x2);
                 else printf("Test #%d wasnt passed\n", number + 1);
                 break;
             case 3:
@@ -156,20 +159,20 @@ int sqr_equation(const float a, const float b, const float c, float *x1, float *
     if (srav(0, a, Zoro)) return (line_equation(a, b, c, x1));
     else
     {
-        float Discriminant = 0;
-        Discriminant = b * b - 4 * a * c;
+        float discriminant = 0;
+        discriminant = b * b - 4 * a * c;
 
-        if (Discriminant < 0) return 0;
+        if (discriminant < 0) return 0;
 
-        if (srav(0, Discriminant, Zoro))
+        if (srav(0, discriminant, Zoro))
         {
             *x1 = -b / (2 * a);
 
             return 1;
         }
-        if (Discriminant > 0)
+        if (discriminant > 0)
         {
-            float koren = sqrt(Discriminant);
+            float koren = sqrt(discriminant);
 
             *x1 = (-b + koren) / (2 * a);
             *x2 = (-b - koren) / (2 * a);
