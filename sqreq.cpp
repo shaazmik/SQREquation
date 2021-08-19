@@ -65,7 +65,7 @@ int TESTinpuT_file(float *a, float *b, float *c, int *KOL_otv, float *x1, float 
 
 int debajim_yohoo()
 {
-    int KOLstr = 0;
+    int KOL_lines = 0;
     FILE *in = fopen("Tests.txt", "r");
     if (!in)
     {
@@ -73,9 +73,9 @@ int debajim_yohoo()
         return ERR_FILE_NOT_FOUND;
     }
 
-    fscanf(in, "%d", &KOLstr);
+    fscanf(in, "%d", &KOL_lines);
 
-    for (int i = 0; i < KOLstr; ++i)
+    for (int i = 0; i < KOL_lines; ++i)
     {
         float a = 0, b = 0, c = 0, x1 = 0, x2 = 0;
         int KOL_otv_file = 0;
