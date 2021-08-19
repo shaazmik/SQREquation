@@ -96,24 +96,24 @@ int debajim_yohoo()
 void vivoddebugga(const int number, const int KOL_otv_file, const float x1, const float x2, const float x1v, const float x2v, const int KOL_otv_func)
 {
    if (KOL_otv_file != KOL_otv_func)
-            printf("Test #%d wasnt passed", number + 1);
+                                                                                printf("Test #%d wasnt passed",                         number + 1);
         else
         {
             switch(KOL_otv_file)
             {
             case 0:
-                printf("Test #%d passed, no roots\n", number + 1);
+                                                                                printf("Test #%d passed, no roots\n",                   number + 1);
                 break;
             case 1:
-                if (x1v == x1) printf("Test #%d passed, x1 = %.2f\n", number + 1, x1);
-                else printf("Test #%d wasnt passed\n", number + 1);
+                if (x1v == x1)                                                  printf("Test #%d passed, x1 = %.2f\n",                  number + 1, x1);
+                else                                                            printf("Test #%d wasnt passed\n",                       number + 1);
                 break;
             case 2:
-                if (srav(x1, x1v, Pogranichnik) && srav(x2, x2v, Pogranichnik)) printf("Test #%d passed, x1 = %.2f, x2 = %.2f\n", number + 1, x1, x2);
-                else printf("Test #%d wasnt passed\n", number + 1);
+                if (srav(x1, x1v, Pogranichnik) && srav(x2, x2v, Pogranichnik)) printf("Test #%d passed, x1 = %.2f, x2 = %.2f\n",       number + 1, x1, x2);
+                else                                                            printf("Test #%d wasnt passed\n",                       number + 1);
                 break;
             case 3:
-                printf("Test #%d passed, infinite quantity of roots\n", number + 1);
+                                                                                printf("Test #%d passed, infinite quantity of roots\n", number + 1);
                 break;
             }
         }
