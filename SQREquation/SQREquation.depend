@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1629474945 source:c:\users\daniil\documents\sqrequation\sqrequation.cpp
+	"SQREquation_header.h"
+	"function_from_SQREquation_header.h"
+
+1629474103 c:\users\daniil\documents\sqrequation\sqrequation_header.h
+	"TXLib.h"
+	<stdio.h>
+	<math.h>
+	<assert.h>
+	<string.h>
+
+1629473737 c:\users\daniil\documents\sqrequation\function_from_sqrequation_header.h
+	<math.h>
+	<assert.h>
+
+1629472251 source:c:\users\daniil\documents\sqrequation\function_from_sqrequation.cpp
+	"function_from_SQREquation_header.h"
+
