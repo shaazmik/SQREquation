@@ -31,6 +31,7 @@ int solve_line_equation (const float coef_with_var, const float coef_without_var
     }
 }
 
+
 int solve_sqr_equation (const float a, const float b, const float c, float *x1, float *x2)
 {
     assert (x1 != NULL);

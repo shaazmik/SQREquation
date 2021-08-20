@@ -15,7 +15,6 @@ int main (int argc, const char* argv[])
         return 1;
     }
 
-
     printf ("form of equation: ax^2+bx+c\n\n");
 
     #ifndef DEBUG_MODE
@@ -115,6 +114,7 @@ int debajim_yOhOO ()
     }
 
     fclose (in);
+
     return 0;
 }
 
