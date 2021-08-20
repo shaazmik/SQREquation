@@ -1,5 +1,5 @@
-#include "SQREquation_header.h"
-#include "function_from_SQREquation_header.h"
+#include "SQREquation.h"
+#include "function_from_SQREquation.h"
 #define __troll__ printf ("\nProizoshel trolling: ");
 
 const int NotUsed = system( "color D5" ); // Разрешаю закомментить, если не нравится)
@@ -7,7 +7,7 @@ const int NotUsed = system( "color D5" ); // Разрешаю закомментить, если не нрав
 int main (int argc, const char* argv[])
 {
     //txSetConsoleAttr (FOREGROUND_YELLOW | BACKGROUND_MAGENTA);
-    printf ("Path: \"%s\"\n", argv[0]);
+    printf ("Path: \"%s\"\n\n", argv[0]);
 
     if (argc == 2 && strcmp (argv[1], "-h") == 0)
     {

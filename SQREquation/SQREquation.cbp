@@ -32,7 +32,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="main.cpp" />
+		<Unit filename="SQREquation.cpp" />
+		<Unit filename="SQREquation.h" />
+		<Unit filename="function_from_SQREquation.cpp" />
+		<Unit filename="function_from_SQREquation.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
