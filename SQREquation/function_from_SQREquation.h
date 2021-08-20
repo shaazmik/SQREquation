@@ -1,12 +1,13 @@
-#ifndef FUNCTION_FROM_SQREQUATION_H_INCLUDED
-#define FUNCTION_FROM_SQREQUATION_H_INCLUDED
-#include <math.h>
-#include <assert.h>
-
 //!@mainpage It is short library with math function for me
 //! I don't think that u will use this peace of pie
 //! WARNING functions solve_sqr_equation: in case of infinite number of roots, returns 3
 //! Please read the documentation
+
+
+#ifndef FUNCTION_FROM_SQREQUATION_H_INCLUDED
+#define FUNCTION_FROM_SQREQUATION_H_INCLUDED
+#include <math.h>
+#include <assert.h>
 
 
 //! use for return message about infinite numbers of roots
@@ -19,6 +20,7 @@
 //Buenos Dias
 
 const float Zoro = 0.0001;
+
 
 /*!
  *   \brief Checks the number#1 for equality with number#2, the 3d argument is accuracy value

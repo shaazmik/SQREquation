@@ -1,13 +1,3 @@
-#include "TXLib.h"
-#ifndef SQREQUATION_H_INCLUDED
-#define SQREQUATION_H_INCLUDED
-#include <stdio.h>
-#include <math.h>
-#include <assert.h>
-#include <string.h>
-//#define DEBUG_MODE
-
-
 //!@mainpage
 //!Program for solving quadratic equations
 //!An equation of the form ax^2+bx+c=0. 3 coefficients @c a, @c b, and @c c are entered.
@@ -16,6 +6,16 @@
 //!First line is the number of tests, next:
 //!'coefficient a' 'coefficient b' 'coefficient c' 'number of answer' 'answer 1' 'answer 2' (if roots are exist).
 //!The output accuracy is 2 significant digits after the decimal point
+
+
+#include "TXLib.h"
+#ifndef SQREQUATION_H_INCLUDED
+#define SQREQUATION_H_INCLUDED
+#include <stdio.h>
+#include <math.h>
+#include <assert.h>
+#include <string.h>
+//#define DEBUG_MODE
 
 
 //! the error value to compare 2 numbers
