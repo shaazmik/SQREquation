@@ -1,18 +1,18 @@
+#ifndef FUNCTION_FROM_SQREQUATION_H_INCLUDED
+#define FUNCTION_FROM_SQREQUATION_H_INCLUDED
+
 //!@mainpage It is short library with math function for me
 //! I don't think that u will use this peace of pie
 //! WARNING functions solve_sqr_equation: in case of infinite number of roots, returns 3
 //! Please read the documentation
 
-
-#ifndef FUNCTION_FROM_SQREQUATION_H_INCLUDED
-#define FUNCTION_FROM_SQREQUATION_H_INCLUDED
 #include <math.h>
 #include <assert.h>
 
 
 //! use for return message about infinite numbers of roots
 
-#define SQRE_INFINITE_NUMBERS_OF_ROOT 3
+const int Infinite_number_of_roots = 3;
 
 
 //! the error value for comparison with 0
@@ -32,6 +32,7 @@ const float Zoro = 0.0001;
 
 bool srav_tWo_numbErs (const float number1, const float number2, const float fallibility);
 
+
 /*!
  *   \brief Solves linear equations provided that the coefficient a = 0
  *   \param[in]  coef_with_X - coefficient with variable
@@ -41,6 +42,7 @@ bool srav_tWo_numbErs (const float number1, const float number2, const float fal
  */
 
 int solve_line_equation (const float coef_with_var, const float coef_without_var, float *x1);
+
 
 /*!
  *   \brief Solves the quadratic equation

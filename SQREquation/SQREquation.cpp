@@ -2,11 +2,12 @@
 #include "function_from_SQREquation.h"
 #define __troll__ printf ("\nProizoshel trolling: ");
 
-const int NotUsed = system( "color D5" ); // Разрешаю закомментить, если не нравится)
-
 int main (int argc, const char* argv[])
 {
     //txSetConsoleAttr (FOREGROUND_YELLOW | BACKGROUND_MAGENTA);
+
+    system( "color D5" ); // Разрешаю закомментить, если не нравится)
+
     printf ("Path: \"%s\"\n\n", argv[0]);
 
     if (argc == 2 && strcmp (argv[1], "-h") == 0)
@@ -96,11 +97,11 @@ int debajim_yOhOO ()
 
     for (int i = 0; i < KOL_lines; ++i)
     {
-        float a = 0, b = 0, c = 0, x1 = 0, x2 = 0;
+        float a = 0, b = 0, c = 0, x1_from_file = 0, x2_from_file = 0;
 
         int KOL_otv_file = 0;
 
-        if (TEST_inpuT_file (&a, &b, &c, &KOL_otv_file, &x1, &x2, in) == 1)
+        if (TEST_inpuT_file (&a, &b, &c, &KOL_otv_file, &x1_from_file, &x2_from_file, in) == 1)
         {
             fprintf (stderr, "");
             break;
@@ -110,7 +111,7 @@ int debajim_yOhOO ()
 
         int KOL_otv_function = solve_sqr_equation (a, b, c, &x1_from_func, &x2_from_func);
 
-        vivod_debugga (i, KOL_otv_file, x1, x2, x1_from_func, x2_from_func, KOL_otv_function);
+        vivod_debugga (i, KOL_otv_file, x1_from_file, x2_from_file, x1_from_func, x2_from_func, KOL_otv_function);
     }
 
     fclose (in);

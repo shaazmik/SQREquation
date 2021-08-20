@@ -1,3 +1,6 @@
+#ifndef SQREQUATION_H_INCLUDED
+#define SQREQUATION_H_INCLUDED
+
 //!@mainpage
 //!Program for solving quadratic equations
 //!An equation of the form ax^2+bx+c=0. 3 coefficients @c a, @c b, and @c c are entered.
@@ -7,14 +10,14 @@
 //!'coefficient a' 'coefficient b' 'coefficient c' 'number of answer' 'answer 1' 'answer 2' (if roots are exist).
 //!The output accuracy is 2 significant digits after the decimal point
 
-
 #include "TXLib.h"
-#ifndef SQREQUATION_H_INCLUDED
-#define SQREQUATION_H_INCLUDED
 #include <stdio.h>
 #include <math.h>
 #include <assert.h>
 #include <string.h>
+
+//! use for launch debug mod , if delete '//'
+
 //#define DEBUG_MODE
 
 
@@ -29,6 +32,7 @@ enum ERRORS
 {
     ERR_FILE_NOT_FOUND = 1
 };
+
 
 /*!
  *   \brief Use for output of unit tests
@@ -46,7 +50,6 @@ int debajim_yOhOO ();
  */
 
 int zapuskTRTR (float *a, float *b, float *c);
-
 
 
 /*!
@@ -73,6 +76,7 @@ void outputVJUX (const int KOL_otv, const float x1, const float x2);
 
 int TEST_inpuT_file (float *a, float *b, float *c, int *KOL_otv, float *x1, float *x2, FILE *in);
 
+
 /*!
  *   \brief output tests from debug
  *   \param[in] number - number of test
@@ -84,6 +88,6 @@ int TEST_inpuT_file (float *a, float *b, float *c, int *KOL_otv, float *x1, floa
  *   \param[in] KOL_otv_function - number of roots of equation from function
  */
 
-void vivod_debugga (const int number, const int KOL_otv_file, const float x1, const float x2, const float x1v, const float x2v, const int KOL_otv_function);
+void vivod_debugga (const int number, const int KOL_otv_file, const float x1_from_file, const float x2_from_file, const float x1_from_func, const float x2_from_func, const int KOL_otv_function);
 
 #endif // SQREQUATION_HEADER_H_INCLUDED

@@ -13,7 +13,7 @@ int solve_line_equation (const float coef_with_var, const float coef_without_var
 
     if (srav_tWo_numbErs (0, coef_with_var, Zoro))
     {
-         if (srav_tWo_numbErs (0, coef_without_var, Zoro)) return SQRE_INFINITE_NUMBERS_OF_ROOT;
+         if (srav_tWo_numbErs (0, coef_without_var, Zoro)) return Infinite_number_of_roots;
          else return 0;
     }
     else
