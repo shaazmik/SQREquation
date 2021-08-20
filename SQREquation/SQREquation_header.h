@@ -36,7 +36,7 @@ enum ERRORS
  *   \return In the function fails, the return value 1, else return value 0
  */
 
-int debajim_yOhOO();
+int debajim_yOhOO ();
 
 
 /*!
@@ -46,7 +46,7 @@ int debajim_yOhOO();
  *   \param[out] c pointer to the 'c' - coefficient
  */
 
-int zapuskTRTR(float *a, float *b, float *c);
+int zapuskTRTR (float *a, float *b, float *c);
 
 
 
@@ -58,7 +58,7 @@ int zapuskTRTR(float *a, float *b, float *c);
  *   \note if there are no solutions or infinitely, then reports it
  */
 
-void outputVJUX(const int KOL_otv, const float x1, const float x2);
+void outputVJUX (const int KOL_otv, const float x1, const float x2);
 
 
 /*!
@@ -72,7 +72,7 @@ void outputVJUX(const int KOL_otv, const float x1, const float x2);
  *   \return In the function fails, the return value 1, else return value 0
  */
 
-int TEST_inpuT_file(float *a, float *b, float *c, int *KOL_otv, float *x1, float *x2, FILE *in);
+int TEST_inpuT_file (float *a, float *b, float *c, int *KOL_otv, float *x1, float *x2, FILE *in);
 
 /*!
  *   \brief output tests from debug
@@ -85,6 +85,6 @@ int TEST_inpuT_file(float *a, float *b, float *c, int *KOL_otv, float *x1, float
  *   \param[in] KOL_otv_function - number of roots of equation from function
  */
 
-void vivod_debugga(const int number, const int KOL_otv_file, const float x1, const float x2, const float x1v, const float x2v, const int KOL_otv_function);
+void vivod_debugga (const int number, const int KOL_otv_file, const float x1, const float x2, const float x1v, const float x2v, const int KOL_otv_function);
 
 

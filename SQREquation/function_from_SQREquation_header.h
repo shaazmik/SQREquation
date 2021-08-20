@@ -9,8 +9,6 @@
 
 const float Zoro = 0.0001;
 
-//! Color for using c
-
 /*!
  *   \brief Checks the number#1 for equality with number#2, the 3d argument is accuracy value
  *   \param[in] number1 - the first number for comparison

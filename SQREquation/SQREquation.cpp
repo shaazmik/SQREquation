@@ -7,7 +7,7 @@ const int NotUsed = system( "color D5" ); // Разрешаю закомментить, если не нрав
 int main (int argc, const char* argv[])
 {
     //txSetConsoleAttr (FOREGROUND_YELLOW | BACKGROUND_MAGENTA);
-    printf ("Путь файла: \"%s\"\n", argv[0]);
+    printf ("Path: \"%s\"\n", argv[0]);
 
     if (argc == 2 && strcmp (argv[1], "-h") == 0)
     {

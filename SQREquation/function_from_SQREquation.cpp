@@ -36,6 +36,7 @@ int solve_sqr_equation (const float a, const float b, const float c, float *x1, 
     assert (x1 != NULL);
     assert (x2 != NULL);
     assert (x1 != x2);
+
     if (srav_tWo_numbErs (0, a, Zoro)) return (solve_line_equation (a, b, c, x1));
     else
     {
