@@ -120,7 +120,7 @@ int debajim_yOhOO ()
 void vivod_debugga (const int number, const int KOL_otv_file, const float x1_from_file, const float x2_from_file, const float x1_from_func, const float x2_from_func, const int KOL_otv_func)
 {
    if (KOL_otv_file != KOL_otv_func)
-                                printf ("Test #%d wasn't passed\n",                        number + 1);
+                                printf ("Test #%d wasn't passed\n",                      number + 1);
         else
         {
             switch (KOL_otv_file)
