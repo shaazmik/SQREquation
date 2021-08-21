@@ -9,6 +9,10 @@
 #include <math.h>
 #include <assert.h>
 
+//! use for return error about unreal math situation
+
+const int ERR_HM_HM_HM = 1337;
+
 
 //! use for return message about infinite numbers of roots
 
@@ -52,7 +56,7 @@ int solve_line_equation (const double coef_with_var, const double coef_without_v
  *   \param[out] x1 pointer to the first  root x1
  *   \param[out] x2 pointer to the second root x2
  *   \return Number of roots
- *   \note In case of infinite number of roots, returns 3
+ *   \note In case of infinite number of roots, returns 3, if you get unreal math situation , returns 1337
  */
 
 int solve_sqr_equation (const double a, const double b, const double c, double *x1, double *x2);

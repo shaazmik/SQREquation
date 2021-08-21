@@ -74,7 +74,7 @@ int TEST_inpuT_file (double *a, double *b, double *c, int *KOL_otv, double *x1, 
             break;
 
         default:
-            return 1;
+            return ERR_SO_MUCH_MAN;
             break;
     }
 
@@ -99,7 +99,7 @@ int debajim_yOhOO ()
 
         int KOL_otv_file = 0;
 
-        if (TEST_inpuT_file (&a, &b, &c, &KOL_otv_file, &x1_from_file, &x2_from_file, in) == ERR_NO_DIGIT)
+        if (TEST_inpuT_file (&a, &b, &c, &KOL_otv_file, &x1_from_file, &x2_from_file, in) != 0)
         {
             fprintf (stderr, "Paren ti sovsem documentation not read?\n");
             break;
@@ -121,6 +121,7 @@ void vivod_debugga (const int number, const int KOL_otv_file, const double x1_fr
 {
    if (KOL_otv_file != KOL_otv_func)
                                 printf ("Test #%d wasn't passed\n",                      number + 1);
+
         else
         {
             switch (KOL_otv_file)
@@ -129,21 +130,31 @@ void vivod_debugga (const int number, const int KOL_otv_file, const double x1_fr
                                 printf ("Test #%d passed, no roots\n",                   number + 1);
 
                 break;
+
             case 1:
                 if (srav_tWo_numbErs (x1_from_file, x1_from_func, Pogreshnik))
                                 printf ("Test #%d passed, x1 = %.2lf\n",                  number + 1, x1_from_func);
-                else            printf ("Test #%d wasn't passed\n",                      number + 1);
+
+                else            printf ("Test #%d wasn't passed\n",                       number + 1);
 
                 break;
+
             case 2:
                 if ((srav_tWo_numbErs (x1_from_file, x1_from_func, Pogreshnik) && srav_tWo_numbErs (x2_from_file, x2_from_func, Pogreshnik)) ||
                     (srav_tWo_numbErs (x2_from_file, x1_from_func, Pogreshnik) && srav_tWo_numbErs (x1_from_file, x2_from_func, Pogreshnik)))
-                                printf ("Test #%d passed, x1 = %.2lf, x2 = %.2lf\n",       number + 1, x1_from_func, x2_from_func);
-                else            printf ("Test #%d wasn't passed\n",                      number + 1);
+                                printf ("Test #%d passed, x1 = %.2lf, x2 = %.2lf\n",      number + 1, x1_from_func, x2_from_func);
+
+                else            printf ("Test #%d wasn't passed\n",                       number + 1);
 
                 break;
+
             case 3:
-                                printf ("Test #%d passed, infinite quantity of roots\n", number + 1);
+                                printf ("Test #%d passed, infinite quantity of roots\n",  number + 1);
+
+                break;
+
+            default:
+                __troll__
 
                 break;
             }
@@ -205,6 +216,7 @@ void outputVJUX (const int KOL_otv, const double x1, const double x2)
             break;
 
         default:
+            __troll__
             break;
     }
     return;

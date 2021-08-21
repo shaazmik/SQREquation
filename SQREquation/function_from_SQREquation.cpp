@@ -50,29 +50,19 @@ int solve_sqr_equation (const double a, const double b, const double c, double *
     if (srav_tWo_numbErs (0, a, Zoro)) return (solve_line_equation (b, c, x1));
     else
     {
-        if (srav_tWo_numbErs(0, c, Zoro))
+        if (srav_tWo_numbErs (0, c, Zoro))
         {
-            int KOL_roots = solve_line_equation(a, b, x2);
+            int KOL_roots = solve_line_equation (a, b, x2);
             *x1 = 0;
-
-            switch (KOL_roots)
-            {
-                case 0:
-                    return 1;
-                    break;
-
-                case 1:
+            if (KOL_roots == 1)
+                {
                     if (srav_tWo_numbErs (*x1, *x2, Zoro))
                         return 1;
                     else
                         return 2;
-                    break;
-
-                case Infinite_number_of_roots:
-                default:
-                    return Infinite_number_of_roots;
-                    break;
-            }
+                }
+            else
+                return ERR_HM_HM_HM;
         }
         else
         {

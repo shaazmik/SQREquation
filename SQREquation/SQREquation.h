@@ -18,7 +18,7 @@
 
 //! use for launch debug mod , if delete '//'
 
-#define DEBUG_MODE
+//#define DEBUG_MODE
 
 
 //! the error value to compare 2 numbers
@@ -26,12 +26,13 @@
 const double Pogreshnik = 0.01;
 
 
-//! declaring an error for not finding a file
+//! declaring an error in functions
 
 enum ERRORS
 {
     ERR_NO_DIGIT = 1,
-    ERR_FILE_NOT_FOUND = 2
+    ERR_FILE_NOT_FOUND = 2,
+    ERR_SO_MUCH_MAN = 228
 };
 
 
@@ -87,6 +88,7 @@ int TEST_inpuT_file (double *a, double *b, double *c, int *KOL_otv, double *x1, 
  *   \param[in] x1v - the first root of equation from function
  *   \param[in] x2v - the second root of equation from function
  *   \param[in] KOL_otv_function - number of roots of equation from function
+ *   \note If user inputs not digit, returns 1. If user input number of roots more than must be in quadratic equation, returns 228.
  */
 
 void vivod_debugga (const int number, const int KOL_otv_file, const double x1_from_file, const double x2_from_file, const double x1_from_func, const double x2_from_func, const int KOL_otv_function);
