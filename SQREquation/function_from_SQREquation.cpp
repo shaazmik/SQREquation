@@ -3,6 +3,10 @@
 
 bool srav_tWo_numbErs (const float number1, const float number2, const float fallibility)
 {
+    assert (! (isnan (number1)));
+    assert (! (isnan (number2)));
+    assert (! (isnan (fallibility)));
+
     return fabs (number2 - number1) < fallibility;
 }
 
@@ -10,6 +14,8 @@ bool srav_tWo_numbErs (const float number1, const float number2, const float fal
 int solve_line_equation (const float coef_with_var, const float coef_without_var, float *x1)
 {
     assert (x1 != NULL);
+    assert (! (isnan (coef_without_var)));
+    assert (! (isnan (coef_with_var)));
 
     if (srav_tWo_numbErs (0, coef_with_var, Zoro))
     {
@@ -34,6 +40,9 @@ int solve_line_equation (const float coef_with_var, const float coef_without_var
 
 int solve_sqr_equation (const float a, const float b, const float c, float *x1, float *x2)
 {
+    assert (! (isnan (a)));
+    assert (! (isnan (b)));
+    assert (! (isnan (c)));
     assert (x1 != NULL);
     assert (x2 != NULL);
     assert (x1 != x2);
@@ -43,9 +52,27 @@ int solve_sqr_equation (const float a, const float b, const float c, float *x1, 
     {
         if (srav_tWo_numbErs(0, c, Zoro))
         {
-            solve_line_equation(a, b, x1);
-            *x2 = 0;
-            return 2;
+            int KOL_roots = solve_line_equation(a, b, x2);
+            *x1 = 0;
+
+            switch (KOL_roots)
+            {
+                case 0:
+                    return 1;
+                    break;
+
+                case 1:
+                    if (srav_tWo_numbErs (*x1, *x2, Zoro))
+                        return 1;
+                    else
+                        return 2;
+                    break;
+
+                case Infinite_number_of_roots:
+                default:
+                    return Infinite_number_of_roots;
+                    break;
+            }
         }
         else
         {
@@ -61,14 +88,13 @@ int solve_sqr_equation (const float a, const float b, const float c, float *x1, 
             }
             if (discriminant > 0)
             {
-                float koren = sqrt (discriminant);
+                discriminant = sqrt (discriminant); //BLM BLM LGBTQ+ ANDREW ♂♂♂♂♂
 
-                *x1 = (-b + koren) / (2 * a);
-                *x2 = (-b - koren) / (2 * a);
+                *x1 = (-b + discriminant) / (2 * a);
+                *x2 = (-b - discriminant) / (2 * a);
 
                 return 2;
             }
         }
-
     }
 }

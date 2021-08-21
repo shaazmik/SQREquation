@@ -4,8 +4,6 @@
 
 int main (int argc, const char* argv[])
 {
-    //txSetConsoleAttr (FOREGROUND_YELLOW | BACKGROUND_MAGENTA);
-
     system( "color D5" ); // Разрешаю закомментить, если не нравится)
 
     printf ("Path: \"%s\"\n\n", argv[0]);
@@ -20,7 +18,7 @@ int main (int argc, const char* argv[])
 
     #ifndef DEBUG_MODE
 
-        float a = 0, b = 0, c = 0, x1 = 0, x2 = 0;
+        float a = NAN, b = NAN, c = NAN, x1 = NAN, x2 = NAN;
 
         if (zapuskTRTR (&a, &b, &c) == 1)
         {
@@ -56,7 +54,7 @@ int TEST_inpuT_file (float *a, float *b, float *c, int *KOL_otv, float *x1, floa
     assert (x1 != x2);
     assert (! (a == b || b == c || a == c));
 
-    if (fscanf (in, "%f %f %f %d", a, b, c, KOL_otv) != 4) return 1;
+    if (fscanf (in, "%f %f %f %d", a, b, c, KOL_otv) != 4) return ERR_NO_DIGIT;
     switch (*KOL_otv)
     {
         case 0:
@@ -89,25 +87,25 @@ int debajim_yOhOO ()
     FILE *in = fopen ("Tests.txt", "r");
     if (!in)
     {
-        perror ("error:File \"Tests.txt\" is poteryalsya");
+        perror ("error:File \"Tests.txt\" is poteryalsya\n");
         return ERR_FILE_NOT_FOUND;
     }
 
-    fscanf (in, "%d", &KOL_lines);
+    if (fscanf (in, "%d", &KOL_lines) != 1 ) return ERR_NO_DIGIT;
 
     for (int i = 0; i < KOL_lines; ++i)
     {
-        float a = 0, b = 0, c = 0, x1_from_file = 0, x2_from_file = 0;
+        float a = NAN, b = NAN, c = NAN, x1_from_file = NAN, x2_from_file = NAN;
 
         int KOL_otv_file = 0;
 
-        if (TEST_inpuT_file (&a, &b, &c, &KOL_otv_file, &x1_from_file, &x2_from_file, in) == 1)
+        if (TEST_inpuT_file (&a, &b, &c, &KOL_otv_file, &x1_from_file, &x2_from_file, in) == ERR_NO_DIGIT)
         {
-            fprintf (stderr, "");
+            fprintf (stderr, "Paren ti sovsem documentation not read?\n");
             break;
         }
 
-        float x1_from_func = 0, x2_from_func = 0;
+        float x1_from_func = NAN, x2_from_func = NAN;
 
         int KOL_otv_function = solve_sqr_equation (a, b, c, &x1_from_func, &x2_from_func);
 
@@ -119,29 +117,34 @@ int debajim_yOhOO ()
     return 0;
 }
 
-void vivod_debugga (const int number, const int KOL_otv_file, const float x1, const float x2, const float x1v, const float x2v, const int KOL_otv_func)
+void vivod_debugga (const int number, const int KOL_otv_file, const float x1_from_file, const float x2_from_file, const float x1_from_func, const float x2_from_func, const int KOL_otv_func)
 {
    if (KOL_otv_file != KOL_otv_func)
-                                                                    printf ("Test #%d wasn't passed",                        number + 1);
+                                printf ("Test #%d wasn't passed\n",                        number + 1);
         else
         {
             switch (KOL_otv_file)
             {
             case 0:
-                                                                    printf ("Test #%d passed, no roots\n",                   number + 1);
+                                printf ("Test #%d passed, no roots\n",                   number + 1);
+
                 break;
             case 1:
-                if (srav_tWo_numbErs (x1v, x1, Pogreshnik))         printf ("Test #%d passed, x1 = %.2f\n",                  number + 1, x1);
-                else                                                printf ("Test #%d wasn't passed\n",                      number + 1);
+                if (srav_tWo_numbErs (x1_from_file, x1_from_func, Pogreshnik))
+                                printf ("Test #%d passed, x1 = %.2f\n",                  number + 1, x1_from_func);
+                else            printf ("Test #%d wasn't passed\n",                      number + 1);
+
                 break;
             case 2:
-                if ((srav_tWo_numbErs (x1, x1v, Pogreshnik) && srav_tWo_numbErs (x2, x2v, Pogreshnik)) ||
-                    (srav_tWo_numbErs (x2, x1v, Pogreshnik) && srav_tWo_numbErs (x1, x2v, Pogreshnik)))
-                                                                    printf ("Test #%d passed, x1 = %.2f, x2 = %.2f\n",       number + 1, x1, x2);
-                else                                                printf ("Test #%d wasn't passed\n",                      number + 1);
+                if ((srav_tWo_numbErs (x1_from_file, x1_from_func, Pogreshnik) && srav_tWo_numbErs (x2_from_file, x2_from_func, Pogreshnik)) ||
+                    (srav_tWo_numbErs (x2_from_file, x1_from_func, Pogreshnik) && srav_tWo_numbErs (x1_from_file, x2_from_func, Pogreshnik)))
+                                printf ("Test #%d passed, x1 = %.2f, x2 = %.2f\n",       number + 1, x1_from_func, x2_from_func);
+                else            printf ("Test #%d wasn't passed\n",                      number + 1);
+
                 break;
             case 3:
-                                                                    printf ("Test #%d passed, infinite quantity of roots\n", number + 1);
+                                printf ("Test #%d passed, infinite quantity of roots\n", number + 1);
+
                 break;
             }
          }

@@ -1,10 +1,10 @@
-#ifndef FUNCTION_FROM_SQREQUATION_H_INCLUDED
-#define FUNCTION_FROM_SQREQUATION_H_INCLUDED
-
 //!@mainpage It is short library with math function for me
 //! I don't think that u will use this peace of pie
 //! WARNING functions solve_sqr_equation: in case of infinite number of roots, returns 3
 //! Please read the documentation
+
+#ifndef FUNCTION_FROM_SQREQUATION_H
+#define FUNCTION_FROM_SQREQUATION_H
 
 #include <math.h>
 #include <assert.h>
@@ -17,7 +17,7 @@ const int Infinite_number_of_roots = 3;
 
 //! the error value for comparison with 0
 
-//Buenos Dias
+// Buenos Dias
 
 const float Zoro = 0.0001;
 
@@ -35,8 +35,8 @@ bool srav_tWo_numbErs (const float number1, const float number2, const float fal
 
 /*!
  *   \brief Solves linear equations provided that the coefficient a = 0
- *   \param[in]  coef_with_X - coefficient with variable
- *   \param[in]  coef_without_X - coefficient without variable
+ *   \param[in]  coef_with_var - coefficient with variable
+ *   \param[in]  coef_without_var - coefficient without variable
  *   \param[out] x1 pointer to the root of equation
  *   \return number of roots of equation
  */
@@ -57,4 +57,4 @@ int solve_line_equation (const float coef_with_var, const float coef_without_var
 
 int solve_sqr_equation (const float a, const float b, const float c, float *x1, float *x2);
 
-#endif // FUNCTION_FROM_SQREQUATION_HEADER_H_INCLUDED
+#endif // FUNCTION_FROM_SQREQUATION_H

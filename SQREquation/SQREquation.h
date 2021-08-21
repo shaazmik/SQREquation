@@ -1,6 +1,3 @@
-#ifndef SQREQUATION_H_INCLUDED
-#define SQREQUATION_H_INCLUDED
-
 //!@mainpage
 //!Program for solving quadratic equations
 //!An equation of the form ax^2+bx+c=0. 3 coefficients @c a, @c b, and @c c are entered.
@@ -10,6 +7,9 @@
 //!'coefficient a' 'coefficient b' 'coefficient c' 'number of answer' 'answer 1' 'answer 2' (if roots are exist).
 //!The output accuracy is 2 significant digits after the decimal point
 
+#ifndef SQREQUATION_H
+#define SQREQUATION_H
+
 #include "TXLib.h"
 #include <stdio.h>
 #include <math.h>
@@ -18,7 +18,7 @@
 
 //! use for launch debug mod , if delete '//'
 
-//#define DEBUG_MODE
+#define DEBUG_MODE
 
 
 //! the error value to compare 2 numbers
@@ -30,7 +30,8 @@ const float Pogreshnik = 0.01;
 
 enum ERRORS
 {
-    ERR_FILE_NOT_FOUND = 1
+    ERR_NO_DIGIT = 1,
+    ERR_FILE_NOT_FOUND = 2
 };
 
 
@@ -90,4 +91,4 @@ int TEST_inpuT_file (float *a, float *b, float *c, int *KOL_otv, float *x1, floa
 
 void vivod_debugga (const int number, const int KOL_otv_file, const float x1_from_file, const float x2_from_file, const float x1_from_func, const float x2_from_func, const int KOL_otv_function);
 
-#endif // SQREQUATION_HEADER_H_INCLUDED
+#endif // SQREQUATION_H
