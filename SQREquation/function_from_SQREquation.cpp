@@ -1,7 +1,7 @@
 #include "function_from_SQREquation.h"
 
 
-bool srav_tWo_numbErs (const float number1, const float number2, const float fallibility)
+bool srav_tWo_numbErs (const double number1, const double number2, const double fallibility)
 {
     assert (! (isnan (number1)));
     assert (! (isnan (number2)));
@@ -11,7 +11,7 @@ bool srav_tWo_numbErs (const float number1, const float number2, const float fal
 }
 
 
-int solve_line_equation (const float coef_with_var, const float coef_without_var, float *x1)
+int solve_line_equation (const double coef_with_var, const double coef_without_var, double *x1)
 {
     assert (x1 != NULL);
     assert (! (isnan (coef_without_var)));
@@ -38,7 +38,7 @@ int solve_line_equation (const float coef_with_var, const float coef_without_var
 }
 
 
-int solve_sqr_equation (const float a, const float b, const float c, float *x1, float *x2)
+int solve_sqr_equation (const double a, const double b, const double c, double *x1, double *x2)
 {
     assert (! (isnan (a)));
     assert (! (isnan (b)));
@@ -76,7 +76,7 @@ int solve_sqr_equation (const float a, const float b, const float c, float *x1, 
         }
         else
         {
-            float discriminant = b * b - 4 * a * c;
+            double discriminant = b * b - 4 * a * c;
 
             if (discriminant < 0) return 0;
 

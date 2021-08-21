@@ -19,7 +19,7 @@ const int Infinite_number_of_roots = 3;
 
 // Buenos Dias
 
-const float Zoro = 0.0001;
+const double Zoro = 0.0001;
 
 
 /*!
@@ -30,7 +30,7 @@ const float Zoro = 0.0001;
  *   \return the truthfulness(VO KAK!) of equality
  */
 
-bool srav_tWo_numbErs (const float number1, const float number2, const float fallibility);
+bool srav_tWo_numbErs (const double number1, const double number2, const double fallibility);
 
 
 /*!
@@ -41,7 +41,7 @@ bool srav_tWo_numbErs (const float number1, const float number2, const float fal
  *   \return number of roots of equation
  */
 
-int solve_line_equation (const float coef_with_var, const float coef_without_var, float *x1);
+int solve_line_equation (const double coef_with_var, const double coef_without_var, double *x1);
 
 
 /*!
@@ -55,6 +55,6 @@ int solve_line_equation (const float coef_with_var, const float coef_without_var
  *   \note In case of infinite number of roots, returns 3
  */
 
-int solve_sqr_equation (const float a, const float b, const float c, float *x1, float *x2);
+int solve_sqr_equation (const double a, const double b, const double c, double *x1, double *x2);
 
 #endif // FUNCTION_FROM_SQREQUATION_H

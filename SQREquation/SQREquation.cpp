@@ -18,7 +18,7 @@ int main (int argc, const char* argv[])
 
     #ifndef DEBUG_MODE
 
-        float a = NAN, b = NAN, c = NAN, x1 = NAN, x2 = NAN;
+        double a = NAN, b = NAN, c = NAN, x1 = NAN, x2 = NAN;
 
         if (zapuskTRTR (&a, &b, &c) == 1)
         {
@@ -42,7 +42,7 @@ int main (int argc, const char* argv[])
 #ifdef DEBUG_MODE
 //{
 
-int TEST_inpuT_file (float *a, float *b, float *c, int *KOL_otv, float *x1, float *x2, FILE *in)
+int TEST_inpuT_file (double *a, double *b, double *c, int *KOL_otv, double *x1, double *x2, FILE *in)
 {
     assert (in != NULL);
     assert (a != NULL);
@@ -54,7 +54,7 @@ int TEST_inpuT_file (float *a, float *b, float *c, int *KOL_otv, float *x1, floa
     assert (x1 != x2);
     assert (! (a == b || b == c || a == c));
 
-    if (fscanf (in, "%f %f %f %d", a, b, c, KOL_otv) != 4) return ERR_NO_DIGIT;
+    if (fscanf (in, "%lf %lf %lf %d", a, b, c, KOL_otv) != 4) return ERR_NO_DIGIT;
     switch (*KOL_otv)
     {
         case 0:
@@ -62,11 +62,11 @@ int TEST_inpuT_file (float *a, float *b, float *c, int *KOL_otv, float *x1, floa
             break;
 
         case 1:
-            return (fscanf (in, "%f", x1) != 1);
+            return (fscanf (in, "%lf", x1) != 1);
             break;
 
         case 2:
-            return (fscanf (in, "%f %f", x1, x2) != 2);
+            return (fscanf (in, "%lf %lf", x1, x2) != 2);
             break;
 
         case 3:
@@ -95,7 +95,7 @@ int debajim_yOhOO ()
 
     for (int i = 0; i < KOL_lines; ++i)
     {
-        float a = NAN, b = NAN, c = NAN, x1_from_file = NAN, x2_from_file = NAN;
+        double a = NAN, b = NAN, c = NAN, x1_from_file = NAN, x2_from_file = NAN;
 
         int KOL_otv_file = 0;
 
@@ -105,7 +105,7 @@ int debajim_yOhOO ()
             break;
         }
 
-        float x1_from_func = NAN, x2_from_func = NAN;
+        double x1_from_func = NAN, x2_from_func = NAN;
 
         int KOL_otv_function = solve_sqr_equation (a, b, c, &x1_from_func, &x2_from_func);
 
@@ -117,7 +117,7 @@ int debajim_yOhOO ()
     return 0;
 }
 
-void vivod_debugga (const int number, const int KOL_otv_file, const float x1_from_file, const float x2_from_file, const float x1_from_func, const float x2_from_func, const int KOL_otv_func)
+void vivod_debugga (const int number, const int KOL_otv_file, const double x1_from_file, const double x2_from_file, const double x1_from_func, const double x2_from_func, const int KOL_otv_func)
 {
    if (KOL_otv_file != KOL_otv_func)
                                 printf ("Test #%d wasn't passed\n",                      number + 1);
@@ -131,14 +131,14 @@ void vivod_debugga (const int number, const int KOL_otv_file, const float x1_fro
                 break;
             case 1:
                 if (srav_tWo_numbErs (x1_from_file, x1_from_func, Pogreshnik))
-                                printf ("Test #%d passed, x1 = %.2f\n",                  number + 1, x1_from_func);
+                                printf ("Test #%d passed, x1 = %.2lf\n",                  number + 1, x1_from_func);
                 else            printf ("Test #%d wasn't passed\n",                      number + 1);
 
                 break;
             case 2:
                 if ((srav_tWo_numbErs (x1_from_file, x1_from_func, Pogreshnik) && srav_tWo_numbErs (x2_from_file, x2_from_func, Pogreshnik)) ||
                     (srav_tWo_numbErs (x2_from_file, x1_from_func, Pogreshnik) && srav_tWo_numbErs (x1_from_file, x2_from_func, Pogreshnik)))
-                                printf ("Test #%d passed, x1 = %.2f, x2 = %.2f\n",       number + 1, x1_from_func, x2_from_func);
+                                printf ("Test #%d passed, x1 = %.2lf, x2 = %.2lf\n",       number + 1, x1_from_func, x2_from_func);
                 else            printf ("Test #%d wasn't passed\n",                      number + 1);
 
                 break;
@@ -155,7 +155,7 @@ void vivod_debugga (const int number, const int KOL_otv_file, const float x1_fro
 #endif // DEBUG_MODE
 
 
-int zapuskTRTR (float *a, float *b, float *c)
+int zapuskTRTR (double *a, double *b, double *c)
 {
     assert (a != NULL);
     assert (b != NULL);
@@ -165,17 +165,17 @@ int zapuskTRTR (float *a, float *b, float *c)
     printf ("\n"
             "input the a - coefficients of the equation:");
 
-    if (scanf ("%f", a) == 0) return 1;
+    if (scanf ("%lf", a) == 0) return 1;
 
     printf ("\n"
             "input the b - coefficients of the equation:");
 
-    if (scanf ("%f", b) == 0) return 1;
+    if (scanf ("%lf", b) == 0) return 1;
 
     printf ("\n"
             "input the c - coefficients of the equation:");
 
-    if (scanf ("%f", c) == 0) return 1;
+    if (scanf ("%lf", c) == 0) return 1;
 
     printf ("\n");
 
@@ -184,7 +184,7 @@ int zapuskTRTR (float *a, float *b, float *c)
 
 
 
-void outputVJUX (const int KOL_otv, const float x1, const float x2)
+void outputVJUX (const int KOL_otv, const double x1, const double x2)
 {
     switch (KOL_otv)
     {
@@ -193,11 +193,11 @@ void outputVJUX (const int KOL_otv, const float x1, const float x2)
             break;
 
         case 1:
-            printf ("%.2f single root\n", x1);
+            printf ("%.2lf single root\n", x1);
             break;
 
         case 2:
-            printf ("%.2f %.2f two roots\n", x1, x2);
+            printf ("%.2lf %.2lf two roots\n", x1, x2);
             break;
 
         case 3:

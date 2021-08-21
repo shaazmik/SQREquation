@@ -23,7 +23,7 @@
 
 //! the error value to compare 2 numbers
 
-const float Pogreshnik = 0.01;
+const double Pogreshnik = 0.01;
 
 
 //! declaring an error for not finding a file
@@ -50,7 +50,7 @@ int debajim_yOhOO ();
  *   \param[out] c pointer to the 'c' - coefficient
  */
 
-int zapuskTRTR (float *a, float *b, float *c);
+int zapuskTRTR (double *a, double *b, double *c);
 
 
 /*!
@@ -61,7 +61,7 @@ int zapuskTRTR (float *a, float *b, float *c);
  *   \note if there are no solutions or infinitely, then reports it
  */
 
-void outputVJUX (const int KOL_otv, const float x1, const float x2);
+void outputVJUX (const int KOL_otv, const double x1, const double x2);
 
 
 /*!
@@ -75,7 +75,7 @@ void outputVJUX (const int KOL_otv, const float x1, const float x2);
  *   \return In the function fails, the return value 1, else return value 0
  */
 
-int TEST_inpuT_file (float *a, float *b, float *c, int *KOL_otv, float *x1, float *x2, FILE *in);
+int TEST_inpuT_file (double *a, double *b, double *c, int *KOL_otv, double *x1, double *x2, FILE *in);
 
 
 /*!
@@ -89,6 +89,6 @@ int TEST_inpuT_file (float *a, float *b, float *c, int *KOL_otv, float *x1, floa
  *   \param[in] KOL_otv_function - number of roots of equation from function
  */
 
-void vivod_debugga (const int number, const int KOL_otv_file, const float x1_from_file, const float x2_from_file, const float x1_from_func, const float x2_from_func, const int KOL_otv_function);
+void vivod_debugga (const int number, const int KOL_otv_file, const double x1_from_file, const double x2_from_file, const double x1_from_func, const double x2_from_func, const int KOL_otv_function);
 
 #endif // SQREQUATION_H
